@@ -2,6 +2,11 @@
 
 **Versión:** 0.0.0
 
+## Installation
+
+```bash
+$ npm install fara-comp-react
+```
 
 
 ---
@@ -17,7 +22,7 @@
 The component `Icons....` displays an icon that can be customized in color, size, and adding an action when clicked.
 
 ```jsx
-import { Icons } from "fara_comp_react";
+import { Icons } from "fara-comp-react";
 
 const App = () => {
     return (

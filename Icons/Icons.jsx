@@ -79,6 +79,8 @@ import PhoneIcon from './Paths/PhoneIcon';
 import LikeIcon from './Paths/LikeIcon';
 import TrukIcon from './Paths/TruckIcon';
 import SearchIcon from './Paths/SearchIcon';
+import ArrowRightIcon from './Paths/ArrowRightIcon';
+import ArrowLeftIcon from './Paths/ArrowLeftIcon';
 
 const Icons = ({ color = '#000', size = '30px', onClick, backCol = 'none', bold = 2, type = 'app', hover = false }) => {
 
@@ -176,6 +178,9 @@ const Icons = ({ color = '#000', size = '30px', onClick, backCol = 'none', bold 
             {type === 'like' && <LikeIcon />}
             {type === 'truk' && <TrukIcon />}
             {type === 'search' && <SearchIcon />}
+            {type === 'icon' && <Icons />}
+            {type === 'arrowright' && <ArrowRightIcon />}
+            {type === 'arrowleft' && <ArrowLeftIcon />}
         </svg>
     );
 };
