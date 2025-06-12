@@ -1,6 +1,6 @@
 {
     "name": "fara-comp-react",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "React components",
     "main": "index.jsx",
     "types": "index.d.ts",

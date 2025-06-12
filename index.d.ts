@@ -12,4 +12,16 @@ declare module 'fara_comp_react' {
     }
 
     export const Icons: React.FC<IconProps>;
+
+    // Propiedades de Tooltip
+    export interface TooltipProps {
+        text?: string;
+        children: React.ReactNode;
+        position?: 'top' | 'bottom' | 'left' | 'right' | 'none';
+        backgroundColor?: string;
+        color?: string;
+        cursor?: string;
+    }
+
+    export const Tooltip: React.FC<TooltipProps>;
 }

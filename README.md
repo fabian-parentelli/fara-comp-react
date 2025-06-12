@@ -1,17 +1,13 @@
 # Faradays Components
 
-**Versión:** 0.0.0
+**Versión:** 0.0.1
 
 ## Installation
 
 ```bash
 $ npm install fara-comp-react
 ```
-
-
----
----
-
+<br><br>
 
 
 ## Icons
@@ -58,9 +54,9 @@ export default App;
 - **`type`** (string): A single component is used to select different types of icons.
 
 - **`hover`** (boolean): When hovering over the icon, a soft background is displayed.
-
-
+<br><br>
 ---
+<br>
 
 facebook  x  instagram  youtube  github  user  info  app  error  warning  success  dashboard  
 
@@ -74,8 +70,46 @@ book  css  html  js  node  react  mongo  npm  spotify  whatsapp  store  camera  
 
 check  clock  cloud  database  analytic  direction  sendfile  house  id  lock  email  bike  clip  
 
-phone  like  truk  search  
+phone  like  truk  search icon arrowleft arroright
 
-     
----
----
+<br><br>
+
+## Tooltip
+
+**Versión:** 0.0.0
+
+A tooltip is a small pop-up box that appears when the user hovers over an element, such as a button, icon, or link. Its purpose is to provide additional or clarifying information without permanently taking up visible space in the interface.
+
+```jsx
+import { Tooltip } from "fara-comp-react";
+
+const App = () => {
+    return (
+        <div>
+            <Tooltip 
+                text='message'
+                position='rigth'
+                backgroundColor='red'
+                color='green'
+                cursor='pointer'
+            >        
+                <p>word || icon</p>
+            </Tooltip>
+        </div>
+    );
+};
+
+export default App;
+```
+
+#### Props:
+
+- **`text`** (string): is the text to be displayed within the tooltip. If not specified, the default is (`tooltip`).
+
+- **`position`** (string): Defines the position of the tooltip relative to its child element. It can be `top`, `bottom`, `left`, `right`, or `none`. The default value is `top`.
+
+- **`backgroundColor`** (string): Allows you to customize the tooltip background color using any valid CSS value (e.g., #333, red, rgba(0,0,0,0.8), etc.). The default value is #333.
+
+- **`color`** (string): Specifies the color of the text displayed within the tooltip. The default is #D9D9D9.
+
+- **`cursor`** (string): Determines the type of cursor that appears when the mouse hovers over the tooltip area. The default is 'default', but it can be any valid CSS value, such as 'pointer', 'help', 'move', etc.
