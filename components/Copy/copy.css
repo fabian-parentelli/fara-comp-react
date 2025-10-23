@@ -1,0 +1,14 @@
+.copy {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.copy p {
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.copy p:hover {
+    color: gray !important;
+}

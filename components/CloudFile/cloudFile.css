@@ -1,0 +1,56 @@
+.cloudFile {
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 18px;
+    cursor: pointer;
+    background-color: gainsboro;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cloudUploadIcon {
+    width: 70px;
+    height: 70px;
+    color: #2990c8;
+}
+
+.imgFile {
+    height: 180px;
+}
+
+.thumbnail {
+    width: 50px !important;
+}
+
+.cfRect {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+
+}
+
+.cfCircle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.cfTicket {
+    width: 250px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.cfSmall {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

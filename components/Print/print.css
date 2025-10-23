@@ -1,0 +1,19 @@
+.print {
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 .4rem;
+    border-radius: 6px;
+}
+
+.print:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+@media print {
+    .print {
+        display: none !important;
+    }
+}

@@ -1,0 +1,15 @@
+.badge {
+    position: relative;
+    display: inline-block;
+}
+
+.badgeP {
+    position: absolute;
+    background-color: #333;
+    color: white;
+    font-size: 10px;
+    padding: 4px 6px;
+    border-radius: 50%;
+    top: -5px;
+    right: -5px;
+}
