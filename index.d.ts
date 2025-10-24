@@ -128,6 +128,7 @@ declare module 'fara_comp_react' {
     export interface DownpdfProps {
         url?: string;
         position?: number;
+        color?: string;
     }
 
     export const Downpdf: React.FC<DownpdfProps>;

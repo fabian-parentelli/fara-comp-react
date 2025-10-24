@@ -2,10 +2,9 @@ import './downpdf.css';
 import { Icons } from "../../Icons/Icons";
 import { Tooltip } from "../Tooltips/Tooltips";
 
-const Downpdf = ({ url, position = 'top' }) => {
+const Downpdf = ({ url, position = 'top', color = '#B71C1C' }) => {
 
     const handleDownload = async () => {
-
         const response = await fetch(url);
         const blob = await response.blob();
         const blobUrl = URL.createObjectURL(blob);
@@ -19,9 +18,9 @@ const Downpdf = ({ url, position = 'top' }) => {
     };
 
     return (
-        <Tooltip text="Descargar pdf" position={position}>
+        <Tooltip text="Descargar pdf" position={position} backgroundColor={color}>
             <div className="downpdf" onClick={handleDownload}>
-                <Icons type='pdf' color='#B71C1C' />
+                <Icons type='pdf' color={color} />
             </div>
         </Tooltip>
     );

@@ -2,17 +2,17 @@ import './print.css';
 import { Icons } from "../../Icons/Icons";
 import { Tooltip } from "../Tooltips/Tooltips";
 
-const Print = ({ color = 'gray', size = '30px', position = 'top', useref, bodyClass }) => {
+const Print = ({ color = 'gray', size = '30px', position = 'top', useRef, bodyClass }) => {
 
     const handlePrint = () => {
         
-        if (!useref?.current) {
+        if (!useRef?.current) {
             window.print();
             return;
         };
 
         const originalContent = document.body.innerHTML;
-        document.body.innerHTML = `<div class="${bodyClass || ''}">${useref.current.outerHTML}</div>`;
+        document.body.innerHTML = `<div class="${bodyClass || ''}">${useRef.current.outerHTML}</div>`;
         window.print();
         document.body.innerHTML = originalContent;
         window.location.reload();

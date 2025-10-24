@@ -4,11 +4,12 @@ const Pager = ({ docs, setQuery, backgroundColor = '#2c3e50', top = true }) => {
 
     const handleChangePage = (page) => {
         setQuery((preQuery) => ({ ...preQuery, page }));
-        if (top) window.scrollTo({ top: 0, behavior: 'smooth' })
+        if (top) window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
         <div className='paginator'>
+
             {docs && docs.hasPrevPage === true &&
                 <p className='paginatorNextPage'
                     onClick={() => handleChangePage(docs.prevPage)}
@@ -28,6 +29,7 @@ const Pager = ({ docs, setQuery, backgroundColor = '#2c3e50', top = true }) => {
                     {docs.nextPage}
                 </p>
             }
+            
         </div>
     );
 };

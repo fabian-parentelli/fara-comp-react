@@ -18,7 +18,7 @@ const CloudFile = ({ onChange, folderName, contClass, id }) => {
                 return { url: URL.createObjectURL(file), type: "image" };
             } else if (file.type === "application/pdf") {
                 return { url: "/pdf-icon.png", type: "pdf", fileUrl: URL.createObjectURL(file) };
-            }
+            };
             return null;
         }).filter(Boolean);
 

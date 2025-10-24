@@ -1,14 +1,14 @@
 import './progressBar.css';
 import { useState, useEffect } from "react";
 
-const ProgressBar = ({ progress }) => {
+const ProgressBar = ({ open, background }) => {
 
     const [loading, setLoading] = useState(0);
 
     useEffect(() => {
         let interval;
 
-        if (progress.open) {
+        if (open) {
             setLoading(0);
             interval = setInterval(() => {
                 setLoading(prev => {
@@ -16,25 +16,25 @@ const ProgressBar = ({ progress }) => {
                     return prev + Math.random() * 10;
                 });
             }, 200);
-        } else if (!progress.open && loading > 0) {
+        } else if (!open && loading > 0) {
             setLoading(100);
             const timeout = setTimeout(() => setLoading(0), 500);
             return () => clearTimeout(timeout);
         }
 
         return () => clearInterval(interval);
-    }, [progress.open]);
+    }, [open]);
 
-    if (!progress.open && loading === 0) return null;
+    if (!open && loading === 0) return null;
 
     return (
         <div className="progressBar">
             <div className="progress-container">
                 <div
                     className="progress-fill"
-                    style={{ width: `${loading}%`, background: progress.background || '#333' }}
+                    style={{ width: `${loading}%`, background: background || '#333' }}
                 >
-                    <span className="progress-text">{Math.round(loading)}%</span>
+                    <p className="progress-text">{Math.round(loading)}%</p>
                 </div>
             </div>
         </div>
