@@ -64,7 +64,7 @@ delete, square, padlock, carrot, copy, calendar, map, credit, publicity, cart, d
 pdf, notimage, notcredit, event, video, arrows, qr, scan, print, setting, activity, menu  
 bookUser, book, css, html, js, node, react, mongo, npm, spotify, whatsapp, store  
 camera, cash, chart, check, clock, cloud, database, analytic, direction, sendfile, house, id  
-lock, email, bike, clip, phone, like, truk, search, icon, arrowright, arrowleft
+lock, email, bike, clip, phone, like, truk, search, icon, arrowright, arrowleft, eye, eyeclosed
 
 <br><br>
 

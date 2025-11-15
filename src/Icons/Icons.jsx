@@ -98,6 +98,8 @@ import PlayNextIcons from './Paths/PlayNextIcon';
 import VolumeIcon from './Paths/VolumeIcon';
 import VolumeNotIcon from './Paths/VolumeNotIcon';
 import PlaylistIcons from './Paths/PlaylistIcon';
+import EyeOpenIcon from './Paths/EyeOpenIcon';
+import EyeCloseIcon from './Paths/EyeCloseIcon';
 
 const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bold = 2, type = 'app', hover = false }) => {
 
@@ -214,6 +216,8 @@ const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bo
             {type === 'volume' && <VolumeIcon />}
             {type === 'volumenot' && <VolumeNotIcon />}
             {type === 'playlist' && <PlaylistIcons />}
+            {type === 'eye' && <EyeOpenIcon />}
+            {type === 'eyeclosed' && <EyeCloseIcon />}
         </svg>
     );
 };
