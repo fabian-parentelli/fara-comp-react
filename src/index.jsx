@@ -18,3 +18,4 @@ export { Print } from './components/Print/Print';
 export { SpinnerH } from './components/SpinnerH/SpinnerH';
 export { Switch } from './components/Switch/Switch';
 export { CharacterCounter } from './components/CharacterCounter/CharacterCounter';
+export { Accordion } from './components/Accordion/Accordion';

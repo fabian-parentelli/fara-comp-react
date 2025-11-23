@@ -1,6 +1,6 @@
 # Faradays Components
 
-**Version:** 0.0.2
+**Version:** 0.0.8
 
 ## Installation
 
@@ -12,7 +12,7 @@ $ npm install fara-comp-react
 
 ## Icons
 
-**Version:** 0.0.1
+**Version:** 0.0.8
 
 
 The component `Icons....` displays an icon that can be customized in color, size, and adding an action when clicked.
@@ -64,7 +64,9 @@ delete, square, padlock, carrot, copy, calendar, map, credit, publicity, cart, d
 pdf, notimage, notcredit, event, video, arrows, qr, scan, print, setting, activity, menu  
 bookUser, book, css, html, js, node, react, mongo, npm, spotify, whatsapp, store  
 camera, cash, chart, check, clock, cloud, database, analytic, direction, sendfile, house, id  
-lock, email, bike, clip, phone, like, truk, search, icon, arrowright, arrowleft, eye, eyeclosed
+lock, email, bike, clip, phone, like, truck, search, icon, arrowright, arrowleft, eye, eyeclosed,
+browserplus, browserdel, cashregister, dothor, dotver, pencil, signature, certificate, chevron
+replace, folder, paint, bag
 
 <br><br>
 
@@ -895,3 +897,67 @@ export default App;
 - **`statusFalse`** (string): Text representing the disabled state of the switch, usually displayed to the left of the switch.
 
 - **`statusTrue`** (string): Text representing the activated state of the switch, usually displayed to the right of the switch.
+
+<br/><br/>
+
+
+## Accordion
+
+**Version:** 0.0.1
+
+An accordion is a UI component that allows the user to toggle the visibility of a content panel by clicking on a header. It is useful for organizing content in collapsible sections, reducing visual clutter while keeping information accessible.
+
+```jsx
+import { Accordion } from './Accordion';
+
+const App = () => {
+    return (
+        <div>
+            <Accordion 
+                title="Section 1"
+                styles={{
+                    backColHeader: '#2f14de',
+                    colorHeader: '#fff',
+                    backColContent: '#f0f0f0',
+                    colorContent: '#000',
+                    paddingHeader: '1rem',
+                    paddingContent: '1rem',
+                    borderAcordion: '1px solid #333',
+                    iconBold: true,
+                    iconColor: '#fff',
+                    iconSize: '1.2rem',
+                    iconType: 'arrow'
+                }}
+            >
+                <div>
+                    <p>Item A</p>
+                    <p>Item B</p>
+                    <p>Item C</p>
+                </div>
+            </Accordion>
+        </div>
+    );
+};
+
+export default App;
+```
+
+#### Props:
+
+* **`title`** (string): The text displayed in the accordion header. **Required.**
+
+* **`children`** (ReactNode): The content displayed inside the accordion when it is open. **Required.**
+
+* **`styles`** (object, optional): Allows customization of the accordion appearance. The object can include:
+
+  * **`backColHeader`** (string): Background color of the accordion header. Default: `#f0f0f0`.
+  * **`colorHeader`** (string): Text color of the header. Default: `#000`.
+  * **`backColContent`** (string): Background color of the accordion content panel. Default: `#fff`.
+  * **`colorContent`** (string): Text color of the content. Default: `#000`.
+  * **`paddingHeader`** (string): Padding inside the header. Default: `1rem`.
+  * **`paddingContent`** (string): Padding inside the content panel. Default: `1rem`.
+  * **`borderAcordion`** (string): CSS border for the accordion container. Default: `1px solid #ccc`.
+  * **`iconBold`** (boolean): Whether the accordion icon is bold. Default: `false`.
+  * **`iconColor`** (string): Color of the accordion icon. Default: `#000`.
+  * **`iconSize`** (string | number): Size of the icon (CSS units or number). Default: `'1rem'`.
+  * **`iconType`** (string): Type of icon, e.g., `'arrow'`, `'plus'`, `'custom'`. Default: `'arrow'`.

@@ -100,6 +100,19 @@ import VolumeNotIcon from './Paths/VolumeNotIcon';
 import PlaylistIcons from './Paths/PlaylistIcon';
 import EyeOpenIcon from './Paths/EyeOpenIcon';
 import EyeCloseIcon from './Paths/EyeCloseIcon';
+import BrowserPlusIcon from './Paths/BrowserPlusIcon';
+import BrowserDelIcon from './Paths/BrowserDelIcon';
+import CashRegisterIcon from './Paths/CashRegisterIcon';
+import DotHorIcon from './Paths/DotHorIcons';
+import DotVertIcon from './Paths/DorvertIcon';
+import SignatureIcon from './Paths/SignatureIcon';
+import CertificateIcon from './Paths/CertificateIcon';
+import PencilIcons from './Paths/PencilIcon';
+import ChevronIcon from './Paths/ChevronIcon';
+import ReplaceIcon from './Paths/ReplaceIcon';
+import FolderIcon from './Paths/FolderIcon';
+import PaintIcon from './Paths/PaintIcon';
+import BagIcon from './Paths/BagIcon';
 
 const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bold = 2, type = 'app', hover = false }) => {
 
@@ -218,6 +231,19 @@ const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bo
             {type === 'playlist' && <PlaylistIcons />}
             {type === 'eye' && <EyeOpenIcon />}
             {type === 'eyeclosed' && <EyeCloseIcon />}
+            {type === 'browserplus' && <BrowserPlusIcon />}
+            {type === 'browserdel' && <BrowserDelIcon />}
+            {type === 'cashregister' && <CashRegisterIcon />}
+            {type === 'dothor' && <DotHorIcon />}
+            {type === 'dotver' && <DotVertIcon />}
+            {type === 'pencil' && <PencilIcons />}
+            {type === 'signature' && <SignatureIcon />}
+            {type === 'certificate' && <CertificateIcon />}
+            {type === 'chevron' && <ChevronIcon />}
+            {type === 'replace' && <ReplaceIcon />}
+            {type === 'folder' && <FolderIcon />}
+            {type === 'paint' && <PaintIcon />}
+            {type === 'bag' && <BagIcon />}
         </svg>
     );
 };

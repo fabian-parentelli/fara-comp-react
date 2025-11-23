@@ -218,4 +218,27 @@ declare module 'fara_comp_react' {
     }
 
     export const CharacterCounter: React.FC<CharacterCounterProps>;
+
+    // Propiedades del Accordion
+    export interface AccordionProps {
+        title: string;
+        children: React.ReactNode;
+        styles?: {
+            backColHeader?: string;
+            colorHeader?: string;
+            backColContent?: string;
+            colorContent?: string;
+            paddingHeader?: string;
+            paddingContent?: string;
+            borderAcordion?: string;
+            iconBold?: boolean;
+            iconColor?: string;
+            iconSize?: string;
+            iconType?: string;
+            heightHeader?: string;
+        };
+    }
+
+    // Componente Accordion
+    export const Accordion: React.FC<AccordionProps>;
 }
