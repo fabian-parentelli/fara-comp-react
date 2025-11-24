@@ -1,6 +1,6 @@
 # Faradays Components
 
-**Version:** 0.0.8
+**Version:** 0.0.9
 
 ## Installation
 
@@ -12,7 +12,7 @@ $ npm install fara-comp-react
 
 ## Icons
 
-**Version:** 0.0.8
+**Version:** 0.0.9
 
 
 The component `Icons....` displays an icon that can be customized in color, size, and adding an action when clicked.
@@ -58,15 +58,26 @@ export default App;
 ---
 <br>
 
-facebook, x, instagram, youtube, github, user, info, app, error, warning, success, dashboard  
-star, message, bell, run, door, ticket, shirt, computer, clipboard, report, userCircle, image  
-delete, square, padlock, carrot, copy, calendar, map, credit, publicity, cart, down, tickets  
-pdf, notimage, notcredit, event, video, arrows, qr, scan, print, setting, activity, menu  
-bookUser, book, css, html, js, node, react, mongo, npm, spotify, whatsapp, store  
-camera, cash, chart, check, clock, cloud, database, analytic, direction, sendfile, house, id  
-lock, email, bike, clip, phone, like, truck, search, icon, arrowright, arrowleft, eye, eyeclosed,
-browserplus, browserdel, cashregister, dothor, dotver, pencil, signature, certificate, chevron
-replace, folder, paint, bag
+[
+  "facebook", "x", "instagram", "youtube", "github",
+  "user", "info", "app", "error", "warning", "success", "dashboard",
+  "star", "message", "bell", "run", "door", "ticket", "shirt", "computer",
+  "clipboard", "report", "userCircle", "image", "delete", "square",
+  "padlock", "carrot", "copy", "calendar", "map", "credit", "publicity",
+  "cart", "down", "tickets", "pdf", "notimage", "notcredit", "event",
+  "video", "arrows", "qr", "scan", "print", "setting", "activity", "menu",
+  "bookUser", "book", "css", "html", "js", "node", "react", "mongo",
+  "npm", "spotify", "whatsapp", "store", "camera", "cash", "chart",
+  "check", "clock", "cloud", "database", "analytic", "direction",
+  "sendfile", "house", "id", "lock", "email", "bike", "clip", "phone",
+  "like", "truck", "search", "icon", "arrowright", "arrowleft",
+  "notuser", "notmap", "browser", "question", "boxPack", "bank",
+  "return", "onoff", "radio", "play", "pause", "playback", "playnext",
+  "volume", "volumenot", "playlist", "eye", "eyeclosed", "browserplus",
+  "browserdel", "cashregister", "dothor", "dotver", "pencil",
+  "signature", "certificate", "chevron", "replace", "folder", "paint",
+  "bag", "bottle", "coffee", "glass"
+]
 
 <br><br>
 
@@ -961,3 +972,69 @@ export default App;
   * **`iconColor`** (string): Color of the accordion icon. Default: `#000`.
   * **`iconSize`** (string | number): Size of the icon (CSS units or number). Default: `'1rem'`.
   * **`iconType`** (string): Type of icon, e.g., `'arrow'`, `'plus'`, `'custom'`. Default: `'arrow'`.
+
+<br/><br/>
+
+## Popup
+
+**Version:** 0.0.1
+
+A popup is a UI component that displays a small floating panel when the user clicks on a trigger element (text or icon). It is useful for showing additional information, actions, or interactive content without leaving the current view.
+
+```jsx
+import { Popup } from 'fara-comp-react';
+
+const App = () => {
+    return (
+        <div>
+            <Popup
+                text="Open popup"
+                styles={{
+                    color: '#333',
+                    size: '20px',
+                    position: 'right',
+                    width: '250px'
+                }}
+            >
+                <div>
+                    <p>Popup content line 1</p>
+                    <p>Popup content line 2</p>
+                    <p>Popup content line 3</p>
+                </div>
+            </Popup>
+        </div>
+    );
+};
+
+export default App;
+```
+
+#### Props:
+
+* **`text`** (string, optional): Text that acts as the popup trigger. If omitted, an icon will be used instead.
+
+* **`icon`** (string, optional): Icon type used as the trigger when no text is provided. Default: `'app'`.
+
+* **`children`** (ReactNode): The content displayed inside the popup. **Required.**
+
+* **`styles`** (object, optional): Allows customization of the popup appearance. The object can include:
+
+  * **`color`** (string): Color of the trigger text or icon. Default: `'#f0f0f0'`.
+  * **`size`** (string): Font size of the trigger text or icon size. Default: `'30px'`.
+  * **`width`** (string): Width of the popup container. Default: `'300px'`.
+  * **`position`** (string): Popup direction relative to the trigger.
+
+<br/>
+
+| Position | Significado |
+|---------|--------------|
+| `r`     | right        |
+| `l`     | left         |
+| `t`     | top          |
+| `b`     | bottom       |
+| `lt`    | left-top     |
+| `rt`    | right-top    |
+| `lb`    | left-bottom  |
+| `rb`    | right-bottom |
+
+Default: 'l' (según tu defaultStyles: position: 'left', que corresponde a l).

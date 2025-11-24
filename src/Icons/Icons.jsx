@@ -113,6 +113,9 @@ import ReplaceIcon from './Paths/ReplaceIcon';
 import FolderIcon from './Paths/FolderIcon';
 import PaintIcon from './Paths/PaintIcon';
 import BagIcon from './Paths/BagIcon';
+import BottleIcon from './Paths/BottleIcon';
+import CoffeeIcon from './Paths/CoffeeIcon';
+import GlassIcon from './Paths/GlassIcon';
 
 const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bold = 2, type = 'app', hover = false }) => {
 
@@ -244,6 +247,9 @@ const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bo
             {type === 'folder' && <FolderIcon />}
             {type === 'paint' && <PaintIcon />}
             {type === 'bag' && <BagIcon />}
+            {type === 'bottle' && <BottleIcon />}
+            {type === 'coffee' && <CoffeeIcon />}
+            {type === 'glass' && <GlassIcon />}
         </svg>
     );
 };

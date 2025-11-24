@@ -1,0 +1,92 @@
+.popup-container {
+    position: relative;
+    display: inline-block;
+}
+
+.popup-trigger {
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+}
+
+.popup-content {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.popUp-r {
+    left: 110%;
+    top: -50%;
+}
+
+.popUp-l {
+    right: 110%;
+    top: -50%;
+}
+
+.popUp-lt {
+    bottom: 110%;
+    right: 110%;
+}
+
+.popUp-rt {
+    bottom: 110%;
+    left: 110%;
+}
+
+.popUp-t {
+    bottom: 110%;
+    right: -100%;
+}
+
+.popUp-b {
+    top: 110%;
+    right: -100%;
+}
+
+.popUp-lb {
+    top: 110%;
+    right: 110%;
+}
+
+.popUp-rb {
+    top: 110%;
+    left: 110%;
+}
+
+@keyframes popupFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popupFadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+.popup-content {
+    animation: popupFadeIn 0.25s ease forwards;
+}
+
+.popup-content.closing {
+    animation: popupFadeOut 0.25s ease forwards;
+}

@@ -19,3 +19,4 @@ export { SpinnerH } from './components/SpinnerH/SpinnerH';
 export { Switch } from './components/Switch/Switch';
 export { CharacterCounter } from './components/CharacterCounter/CharacterCounter';
 export { Accordion } from './components/Accordion/Accordion';
+export { Popup } from './components/Pupup/Popup'

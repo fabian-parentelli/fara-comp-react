@@ -239,6 +239,20 @@ declare module 'fara_comp_react' {
         };
     }
 
-    // Componente Accordion
     export const Accordion: React.FC<AccordionProps>;
+
+    // Propiedades del Popup
+    export interface PopupProps {
+        text?: string;
+        icon?: string;
+        children?: React.ReactNode;
+        styles?: {
+            color?: string;
+            size?: string;
+            position?: string;
+            width?: string;
+        };
+    }
+
+    export const Popup: React.FC<PopupProps>;
 }
