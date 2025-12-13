@@ -1,5 +1,5 @@
 import './popup.css';
-import { Icons } from '../../Icons/Icons.jsx';
+import { Icons } from '../../Icons/Icons';
 import { useState, useRef, useEffect } from 'react';
 
 const Popup = ({ text, icon, styles, children }) => {

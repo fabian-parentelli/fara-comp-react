@@ -1,7 +1,7 @@
 import './modal.css';
 
-const Modal = ({ children, open = false, onClose, btn = true, btnName = 'Cerrar', btnBackColor = '#333',
-    btnColor = '#EAEBEF' }) => {
+const Modal = ({ children, open = false, onClose, btn = false, btnName = 'Cerrar', btnBackColor = '#333',
+    btnColor = '#EAEBEF', backgroundColor = '#EAEBEF' }) => {
 
     if (!open) return null;
 
@@ -11,7 +11,10 @@ const Modal = ({ children, open = false, onClose, btn = true, btnName = 'Cerrar'
 
     return (
         <div className='modal' onClick={handleOutsideClick}>
-            <section className='modalSect' onClick={(e) => e.stopPropagation()}>
+            <section
+                className='modalSect' onClick={(e) => e.stopPropagation()}
+                style={{ backgroundColor }}
+            >
                 {children}
 
                 {btn &&

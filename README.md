@@ -76,7 +76,7 @@ export default App;
   "volume", "volumenot", "playlist", "eye", "eyeclosed", "browserplus",
   "browserdel", "cashregister", "dothor", "dotver", "pencil",
   "signature", "certificate", "chevron", "replace", "folder", "paint",
-  "bag", "bottle", "coffee", "glass"
+  "bag", "bottle", "coffee", "glass", send, emailopen, heart, users
 ]
 
 <br><br>
@@ -514,7 +514,7 @@ export default App;
 
 ## Modal
 
-**Version:** 0.0.1
+**Version:** 0.0.2
 
 The Modal component renders an overlay popup window that displays custom content (children) when the open property is true. It allows the window to be closed by clicking outside the content or using a configurable button. Its layout and colors can be customized using the button's props, providing a reusable structure for displaying messages, forms, or other elements within a modal layer.
 
@@ -538,6 +538,7 @@ const App = () => {
                 btnName='Cerrar modal'
                 btnBackColor='#333'
                 btnColor='#EAEBEF'
+                backgroundColor='#EAEBEF'
             >
                 <p>Contenido del modal</p>
             </Modal>
@@ -564,6 +565,9 @@ export default App;
 - **`btnBackColor`** (string): Defines the button's background color using any valid CSS value (hex, RGB, color name). This makes it easy to match the button to the app's color palette without having to touch the component's CSS classes.
 
 - **`btnColor`** (string): Sets the color of the button text. Like btnBackColor, it accepts any CSS color format and is used to ensure contrast and visual consistency based on the theme or design you're using.
+
+* **`backgroundColor`** (string): Sets the background color of the modal container. It accepts any valid CSS color value (hex, RGB, HSL, or color names) and is used to control the visual appearance of the modal, allowing it to match the application's theme or highlight the modal content.
+
 
 <br><br>
 

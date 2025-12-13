@@ -152,6 +152,7 @@ declare module 'fara_comp_react' {
         btnName?: string;
         btnBackColor?: string;
         btnColor?: string;
+        backgroundColor?: string;
     }
 
     export const Modal: React.FC<ModalProps>;
