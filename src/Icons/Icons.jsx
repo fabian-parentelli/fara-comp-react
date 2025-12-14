@@ -119,6 +119,14 @@ import GlassIcon from './Paths/GlassIcon';
 import SendIcon from './Paths/SendIcon';
 import EmailOpenIcon from './Paths/EmailOpenIcon';
 import UserAlone from './Paths/UserAloneIcon';
+import HeartIcon from './Paths/HeartIcon';
+import ExchangeIcon from './Paths/ExchangeIcon';
+import FilMusicIcon from './Paths/FileMusicIcon';
+import MusicIcon from './Paths/MusicIcon';
+import PlayListAddIcon from './Paths/PlayListAdIcon';
+import PlayListEjection from './Paths/PlayEjectIcon';
+import Volume2Icon from './Paths/Volume2Icon';
+import AlbumIcon from './Paths/AlbumIcon';
 
 const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bold = 2, type = 'app', hover = false }) => {
 
@@ -255,8 +263,15 @@ const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bo
             {type === 'glass' && <GlassIcon />}
             {type === 'send' && <SendIcon />}
             {type === 'emailopen' && <EmailOpenIcon />}
-            {type === 'heart' && <EmailOpenIcon />}
+            {type === 'heart' && <HeartIcon />}
             {type === 'user' && <UserAlone />}
+            {type === 'exchange' && <ExchangeIcon />}
+            {type === 'filemusic' && <FilMusicIcon />}
+            {type === 'music' && <MusicIcon />}
+            {type === 'playlistad' && <PlayListAddIcon />}
+            {type === 'ejection' && <PlayListEjection />}
+            {type === 'volumen2' && <Volume2Icon />}
+            {type === 'album' && <AlbumIcon />}
         </svg>
     );
 };

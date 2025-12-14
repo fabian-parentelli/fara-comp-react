@@ -1,6 +1,6 @@
 # Faradays Components
 
-**Version:** 0.0.9
+**Version:** 0.0.12
 
 ## Installation
 
@@ -12,7 +12,7 @@ $ npm install fara-comp-react
 
 ## Icons
 
-**Version:** 0.0.9
+**Version:** 0.0.12
 
 
 The component `Icons....` displays an icon that can be customized in color, size, and adding an action when clicked.
@@ -76,7 +76,9 @@ export default App;
   "volume", "volumenot", "playlist", "eye", "eyeclosed", "browserplus",
   "browserdel", "cashregister", "dothor", "dotver", "pencil",
   "signature", "certificate", "chevron", "replace", "folder", "paint",
-  "bag", "bottle", "coffee", "glass", send, emailopen, heart, users
+  "bag", "bottle", "coffee", "glass", send, emailopen, heart, users,
+  "exchange", "filemusic", "music", "playlistad", "ejection", "volumen2" 
+  "album"
 ]
 
 <br><br>
