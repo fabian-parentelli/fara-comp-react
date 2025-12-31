@@ -1,7 +1,7 @@
 import './cloudFile.css';
 import { useState, useRef } from 'react';
 
-const CloudFile = ({ onChange, folderName, contClass, id }) => {
+const CloudFile = ({ onChange, folderName, contClass, id, preImg }) => {
 
     const fileInputRef = useRef(null);
     const [images, setImages] = useState([]);
@@ -59,7 +59,7 @@ const CloudFile = ({ onChange, folderName, contClass, id }) => {
                     ))}
                 </div>
             ) : (
-                <img src='/logo.png' alt="img" className='cloudUploadIcon' />
+                <img src={preImg || '/logo.png'} alt="img" className='cloudUploadIcon' />
             )}
         </div>
     );

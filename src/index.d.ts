@@ -110,6 +110,7 @@ declare module 'fara_comp_react' {
         folderName?: string;
         contClass?: string;
         id?: string;
+        preImg?: string;
     }
 
     export const CloudFile: React.FC<CloudFileProps>;

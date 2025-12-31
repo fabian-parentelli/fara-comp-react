@@ -337,6 +337,7 @@ const App = () => {
                 folderName='avatars'
                 contClass='cfCircle'
                 id={'123456789'}
+                preImg={'url de una imágen'}
             />
 
         </div>
@@ -357,6 +358,8 @@ export default App;
 - **`contClass`** (string): Allows you to apply a custom CSS class to the component's container, thereby defining its shape or visual style. For example, values ​​like cfRect, cfCircle, cfTicket, or cfSmall allow you to modify the loading area's appearance to match your interface design.
 
 - **`id`** (string): It's an optional identifier added to FormData along with files. It can be used to associate files with a specific record, user, or entity within the application, making them easier to manage and store.
+
+- **`preImg`** (string): Si quieres pre cargar una imágen de perfilc como la de un perfil de usuario.
 
 <br><br>
 
