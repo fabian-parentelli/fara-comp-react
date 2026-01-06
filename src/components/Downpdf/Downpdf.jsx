@@ -5,16 +5,13 @@ import { Tooltip } from "../Tooltips/Tooltips";
 const Downpdf = ({ url, position = 'top', color = '#B71C1C' }) => {
 
     const handleDownload = async () => {
-        const response = await fetch(url);
-        const blob = await response.blob();
-        const blobUrl = URL.createObjectURL(blob);
         const link = document.createElement("a");
-        link.href = blobUrl;
+        link.href = url;
         link.download = "ticket.pdf";
+        link.target = "_blank";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        URL.revokeObjectURL(blobUrl);
     };
 
     return (
