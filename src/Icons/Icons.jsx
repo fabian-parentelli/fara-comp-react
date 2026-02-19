@@ -127,6 +127,13 @@ import PlayListAddIcon from './Paths/PlayListAdIcon';
 import PlayListEjection from './Paths/PlayEjectIcon';
 import Volume2Icon from './Paths/Volume2Icon';
 import AlbumIcon from './Paths/AlbumIcon';
+import ArrowResIcon from './Paths/ArrowResIcon';
+import ArrowSendIcon from './Paths/ArrowSendIcon';
+import ArticleIcon from './Paths/ArticleIcon';
+import ArticleOffIcon from './Paths/ArticleOffIcon';
+import ReloadIcon from './Paths/ReloadIcon';
+import UploadIcon from './Paths/UploadIcon';
+import ZoomIcon from './Paths/ZoomIcon';
 
 const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bold = 2, type = 'app', hover = false }) => {
 
@@ -272,6 +279,13 @@ const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bo
             {type === 'ejection' && <PlayListEjection />}
             {type === 'volumen2' && <Volume2Icon />}
             {type === 'album' && <AlbumIcon />}
+            {type === 'arrowres' && <ArrowResIcon />}
+            {type === 'arrowsend' && <ArrowSendIcon />}
+            {type === 'article' && <ArticleIcon />}
+            {type === 'articleoff' && <ArticleOffIcon />}
+            {type === 'reload' && <ReloadIcon />}
+            {type === 'upload' && <UploadIcon />}
+            {type === 'zoom' && <ZoomIcon />}
         </svg>
     );
 };
