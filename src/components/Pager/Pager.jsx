@@ -1,35 +1,73 @@
 import './pager.css';
 
-const Pager = ({ docs, setQuery, backgroundColor = '#2c3e50', top = true }) => {
+const Pager = ({
+    docs, setQuery,
+    backgroundColor = '#2c3e50',
+    top = true,
+    size = '16px',
+    compColor = '#2c3e50',
+    compBackground = '#ecf0f1',
+    jump = 5
+}) => {
 
     const handleChangePage = (page) => {
+        if (!page) return;
         setQuery((preQuery) => ({ ...preQuery, page }));
         if (top) window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    return (
-        <div className='paginator'>
+    const hasPrev = docs?.page && docs.page > 1;
+    const hasNext = docs?.page && docs?.totalPages && docs.page < docs.totalPages;
+    const showFastBack = docs?.page > 2;
+    const showFastForward = docs?.page && docs?.totalPages && docs.page < docs.totalPages - 1;
 
-            {docs && docs.hasPrevPage === true &&
-                <p className='paginatorNextPage'
+    return (
+        <div
+            className='paginator'
+            style={{
+                fontSize: size,
+                '--compColor': compColor,
+                '--compBackground': compBackground,
+                '--mainBackground': backgroundColor
+            }}
+        >
+
+            {showFastBack &&
+                <span className='paginatorFastPage'
+                    onClick={() => handleChangePage(Math.max(1, docs.page - jump))}
+                >
+                    {'«'}
+                </span>
+            }
+
+            {docs && hasPrev === true &&
+                <span className='paginatorNextPage'
                     onClick={() => handleChangePage(docs.prevPage)}
                 >
                     {docs.prevPage}
-                </p>
+                </span>
             }
 
             {docs && docs.page &&
-                <p className='paginatorActualPage' style={{ backgroundColor }}>{docs.page}</p>
+                <span className='paginatorActualPage' style={{ backgroundColor }}>{docs.page}</span>
             }
 
-            {docs && docs.hasNextPage === true &&
-                <p className='paginatorNextPage'
+            {docs && hasNext === true &&
+                <span className='paginatorNextPage'
                     onClick={() => handleChangePage(docs.nextPage)}
                 >
                     {docs.nextPage}
-                </p>
+                </span>
             }
-            
+
+            {showFastForward &&
+                <span className='paginatorFastPage'
+                    onClick={() => handleChangePage(Math.min(docs.totalPages, docs.page + jump))}
+                >
+                    {'»'}
+                </span>
+            }
+
         </div>
     );
 };

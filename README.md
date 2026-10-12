@@ -1,6 +1,9 @@
 # Faradays Components
 
-**Version:** 0.0.12
+**Version:** 0.0.18
+
+- **GitHub:** [fabian-parentelli/fara-comp-react](https://github.com/fabian-parentelli/fara-comp-react)
+- **Issues:** [Report a bug or request a feature](https://github.com/fabian-parentelli/fara-comp-react/issues)
 
 ## Installation
 
@@ -12,7 +15,7 @@ $ npm install fara-comp-react
 
 ## Icons
 
-**Version:** 0.0.12
+**Version:** 0.0.13
 
 
 The component `Icons....` displays an icon that can be customized in color, size, and adding an action when clicked.
@@ -59,26 +62,30 @@ export default App;
 <br>
 
 [
-  "facebook", "x", "instagram", "youtube", "github",
-  "user", "info", "app", "error", "warning", "success", "dashboard",
-  "star", "message", "bell", "run", "door", "ticket", "shirt", "computer",
-  "clipboard", "report", "userCircle", "image", "delete", "square",
-  "padlock", "carrot", "copy", "calendar", "map", "credit", "publicity",
-  "cart", "down", "tickets", "pdf", "notimage", "notcredit", "event",
+  "facebook", "x", "instagram", "youtube", "github", "tiktok", "twitch",
+  "discord", "linkedin", "wechat", "youtubemusic", "threads",
+  "user", "users", "userCircle", "userdollar", "userscreen", "info", "app",
+  "error", "warning", "success", "dashboard", "star", "message", "chatbot",
+  "bell", "run", "door", "ticket", "tickets", "shirt", "computer",
+  "clipboard", "clipboardplus", "report", "image", "delete", "square",
+  "padlock", "carrot", "copy", "calendar", "map", "mappin", "credit",
+  "publicity", "cart", "down", "pdf", "notimage", "notcredit", "event",
   "video", "arrows", "qr", "scan", "print", "setting", "activity", "menu",
   "bookUser", "book", "css", "html", "js", "node", "react", "mongo",
   "npm", "spotify", "whatsapp", "store", "camera", "cash", "chart",
-  "check", "clock", "cloud", "database", "analytic", "direction",
-  "sendfile", "house", "id", "lock", "email", "bike", "clip", "phone",
-  "like", "truck", "search", "icon", "arrowright", "arrowleft",
-  "notuser", "notmap", "browser", "question", "boxPack", "bank",
-  "return", "onoff", "radio", "play", "pause", "playback", "playnext",
-  "volume", "volumenot", "playlist", "eye", "eyeclosed", "browserplus",
-  "browserdel", "cashregister", "dothor", "dotver", "pencil",
+  "check", "clock", "cloud", "cloudup", "cloudupload", "database",
+  "analytic", "direction", "sendfile", "house", "id", "lock", "email",
+  "emailopen", "bike", "clip", "phone", "microphone", "microphone2",
+  "speakerphone", "like", "truck", "search", "icon", "arrowright",
+  "arrowleft", "arrowres", "arrowsend", "notuser", "notmap", "browser",
+  "browserplus", "browserdel", "question", "boxPack", "bank", "return",
+  "onoff", "radio", "play", "pause", "playback", "playnext", "volume",
+  "volumenot", "volumen2", "playlist", "playlistad", "ejection",
+  "eye", "eyeclosed", "cashregister", "dothor", "dotver", "pencil",
   "signature", "certificate", "chevron", "replace", "folder", "paint",
-  "bag", "bottle", "coffee", "glass", send, emailopen, heart, users,
-  "exchange", "filemusic", "music", "playlistad", "ejection", "volumen2" 
-  "album"
+  "bag", "bottle", "coffee", "glass", "send", "heart", "exchange",
+  "filemusic", "music", "album", "article", "articleoff", "reload",
+  "upload", "zoom", "window", "share", "help", "wallet", "web"
 ]
 
 <br><br>
@@ -260,9 +267,9 @@ export default App;
 
 ## CheckBoxes
 
-**Version:** 0.0.1
+**Version:** 0.0.2
 
-The component displays a set of customizable checkboxes that can operate in single- or multi-select mode. It takes an array of labels with names and identifiers, internally maintains the state of the selected items, and updates the external value via the provided function. It also allows you to define the layout direction of the checkboxes and apply a custom accent color to them.
+The component displays a set of customizable checkboxes that can operate in single- or multi-select mode. It takes an array of labels with names and identifiers, internally maintains the state of the selected items, and updates the external value via the provided function. It also allows you to define the layout direction of the checkboxes and apply a custom accent color to them. All elements (checkbox and label) use a pointer cursor to indicate they are interactive.
 
 ```jsx
 import { useState } from 'react';
@@ -315,9 +322,11 @@ export default App;
 
 ## CloudFile
 
-**Version:** 0.0.1
+**Version:** 0.0.2
 
 The CloudFile component allows users to upload files interactively, displaying an immediate image preview and a representative icon for PDF files. It internally manages the state of the selected files and generates a FormData object containing the files and metadata such as the folder name or an optional identifier, sending it to the parent component via the onChange function. It also provides a clickable area that activates the file picker and visually organizes previews by number and file type.
+
+By default it accepts multiple images and PDFs. With `single={true}` it only allows uploading one image at a time; selecting a new image replaces the previous one. The component now includes a renewed interface: a dashed border that highlights on hover, a blur overlay with the text "Cambiar imagen" when a preview exists, and an animated placeholder with the text "Subir imagen" when it is empty.
 
 ```jsx
 import { useState } from 'react';
@@ -332,12 +341,24 @@ const App = () => {
     return (
         <div className="app">
 
+            {/* Multiple files (default): images + PDFs */}
             <CloudFile
                 onChange={handleFileChange}
                 folderName='avatars'
                 contClass='cfCircle'
                 id={'123456789'}
                 preImg={'url de una imágen'}
+            />
+
+            {/* Only one image: the new one replaces the previous one */}
+            <CloudFile
+                onChange={handleFileChange}
+                folderName='avatars'
+                contClass='cfCircle'
+                single={true}
+                preImg={'url de una imágen'}
+                placeholderText='Subir imagen'
+                overlayText='Cambiar imagen'
             />
 
         </div>
@@ -359,7 +380,21 @@ export default App;
 
 - **`id`** (string): It's an optional identifier added to FormData along with files. It can be used to associate files with a specific record, user, or entity within the application, making them easier to manage and store.
 
-- **`preImg`** (string): Si quieres pre cargar una imágen de perfilc como la de un perfil de usuario.
+- **`preImg`** (string): Si quieres pre cargar una imágen de perfilc como la de un perfil de usuario. En modo `single`, se muestra como vista previa editable (con el overlay "Cambiar imagen"); en modo múltiple, se muestra como placeholder si aún no hay archivos.
+
+- **`single`** (boolean): If true, the input does not allow multiple files and only accepts one image (`accept='image/*'` by default). A newly selected image replaces the previous one and its blob URL is released. The FormData contains a single "files" entry. Default: `false` (multiple).
+
+- **`accept`** (string): Mimetypes accepted by the file input. By default it is `'image/*,application/pdf'` in multiple mode and `'image/*'` in single mode.
+
+- **`iconType`** (string): Icon type (from the Icons component) displayed in the hover overlay. Default: `'cloudup'`.
+
+- **`iconSize`** (string): Size of the overlay icon. Accepts CSS values such as `'28px'` or `'2rem'`. Default: `'28px'`.
+
+- **`iconColor`** (string): Color of the overlay icon. Default: `'#ffffff'`.
+
+- **`placeholderText`** (string): Text displayed under the logo when no file has been selected. Default: `'Subir imagen'`.
+
+- **`overlayText`** (string): Text displayed in the hover overlay when a preview already exists. Default: `'Cambiar imagen'`.
 
 <br><br>
 
@@ -578,9 +613,9 @@ export default App;
 
 ## Pager
 
-**Version:** 0.0.1
+**Version:** 0.0.2
 
-Displays the current page and, if present, the previous and next page numbers. It allows page switching by updating the external state using the setQuery function, and optionally automatically scrolls to the top of the screen when changing pages. Its layout and background color can be customized, offering a lightweight and reusable way to navigate between paginated results pages.
+Displays the current page and, if present, the previous and next page numbers. It also shows fast navigation buttons (« and ») to jump several pages at once (by default 5, limited to the first and last page). It allows page switching by updating the external state using the setQuery function, and optionally automatically scrolls to the top of the screen when changing pages. The size of the buttons, the color of the current page background, and the text and background color of the neighboring ("companion") buttons can be customized.
 
 ```jsx
 import { useState } from 'react';
@@ -611,6 +646,10 @@ const App = () => {
                 setQuery={setQuery}
                 backgroundColor='#2c3e50'
                 top={true}
+                size='16px'
+                compColor='#2c3e50'
+                compBackground='#ecf0f1'
+                jump={5}
             />
 
         </div>
@@ -629,6 +668,14 @@ export default App;
 - **`backgroundColor`** (string): Is a string that defines the background color of the current page indicator. This allows you to customize the pager style and maintain consistency with the application's color palette. If not passed, it assumes a default value (#2c3e50).
 
 - **`top`** (boolean): top es un boolean que determina si, al cambiar de página, la ventana debe desplazarse automáticamente hacia la parte superior. Si top es true, se ejecuta window.scrollTo con un desplazamiento suave al inicio de la página, mejorando la experiencia del usuario al navegar por resultados paginados.
+
+- **`size`** (string): Defines the size of all pager buttons (font size and height, since the padding is relative). Accepts CSS values such as '16px' or '1.5rem'. The default is '16px'.
+
+- **`compColor`** (string): Text color of the companion buttons (previous, next, « and »). Accepts any valid CSS value. The default is '#2c3e50'.
+
+- **`compBackground`** (string): Background color of the companion buttons (previous, next, « and »). Accepts any valid CSS value. The default is '#ecf0f1'.
+
+- **`jump`** (number): Number of pages moved by the fast buttons (« backward and » forward). The result is limited to the range [1, totalPages]. The default is 5.
 
 <br><br>
 

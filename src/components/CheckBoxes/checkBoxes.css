@@ -8,8 +8,10 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    cursor: pointer;
 }
 
 .checkBoxes input {
     width: 15px;
+    cursor: pointer;
 }

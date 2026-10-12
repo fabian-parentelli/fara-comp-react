@@ -134,6 +134,28 @@ import ArticleOffIcon from './Paths/ArticleOffIcon';
 import ReloadIcon from './Paths/ReloadIcon';
 import UploadIcon from './Paths/UploadIcon';
 import ZoomIcon from './Paths/ZoomIcon';
+import WindowIcon from './Paths/WindowIcon';
+import MicrophoneIcon from './Paths/MicrophoneIcon';
+import SpeakerphoneIcon from './Paths/SpeakerphoneIcon';
+import CloudupIcon from './Paths/CloudupIcon';
+import ChatbotIcon from './Paths/ChatbotIcon';
+import CloudUploadIcon from './Paths/CloudUploadIcon';
+import DiscordIcon from './Paths/DiscordIcon';
+import HelpIcon from './Paths/HelpIcon';
+import LinkedinIcon from './Paths/LinkedinIcon';
+import MapPinIcon from './Paths/MapPinIcon';
+import Microphone2Icon from './Paths/Microphone2Icon';
+import ShareIcon from './Paths/ShareIcon';
+import TiktokIcon from './Paths/TiktokIcon';
+import TwitchIcon from './Paths/TwitchIcon';
+import UserDollarIcon from './Paths/UserDollarIcon';
+import UserScreenIcon from './Paths/UserScreenIcon';
+import WalletIcon from './Paths/WalletIcon';
+import WebIcon from './Paths/WebIcon';
+import WechatIcon from './Paths/WechatIcon';
+import YoutubeMusicIcon from './Paths/YoutubeMusicIcon';
+import ClipboardPlusIcon from './Paths/ClipboardPlusIcon';
+import ThreadsIcon from './Paths/ThreadsIcon';
 
 const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bold = 2, type = 'app', hover = false }) => {
 
@@ -286,6 +308,29 @@ const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bo
             {type === 'reload' && <ReloadIcon />}
             {type === 'upload' && <UploadIcon />}
             {type === 'zoom' && <ZoomIcon />}
+
+            {type === 'window' && <WindowIcon />}
+            {type === 'microphone' && <MicrophoneIcon />}
+            {type === 'speakerphone' && <SpeakerphoneIcon />}
+            {type === 'cloudup' && <CloudupIcon />}
+            {type === 'chatbot' && <ChatbotIcon />}
+            {type === 'cloudupload' && <CloudUploadIcon />}
+            {type === 'discord' && <DiscordIcon />}
+            {type === 'help' && <HelpIcon />}
+            {type === 'linkedin' && <LinkedinIcon />}
+            {type === 'mappin' && <MapPinIcon />}
+            {type === 'microphone2' && <Microphone2Icon />}
+            {type === 'share' && <ShareIcon />}
+            {type === 'tiktok' && <TiktokIcon />}
+            {type === 'twitch' && <TwitchIcon />}
+            {type === 'userdollar' && <UserDollarIcon />}
+            {type === 'userscreen' && <UserScreenIcon />}
+            {type === 'wallet' && <WalletIcon />}
+            {type === 'web' && <WebIcon />}
+            {type === 'wechat' && <WechatIcon />}
+            {type === 'youtubemusic' && <YoutubeMusicIcon />}
+            {type === 'clipboardplus' && <ClipboardPlusIcon />}
+            {type === 'threads' && <ThreadsIcon />}
         </svg>
     );
 };

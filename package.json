@@ -1,23 +1,36 @@
 {
   "name": "fara-comp-react",
-  "version": "0.0.15",
-  "description": "React components library",
+  "version": "0.0.18",
+  "description": "React components library with 22 reusable components and 150+ SVG icons",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "babel src -d dist --copy-files",
     "prepare": "npm run build"
-  }, 
+  },
   "files": [
     "dist",
     "README.md"
   ],
   "keywords": [
     "react",
-    "components"
+    "components",
+    "icons",
+    "ui",
+    "svg",
+    "modal",
+    "pager"
   ],
-  "author": "",
+  "author": "Fabian Parentelli",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabian-parentelli/fara-comp-react.git"
+  },
+  "homepage": "https://github.com/fabian-parentelli/fara-comp-react#readme",
+  "bugs": {
+    "url": "https://github.com/fabian-parentelli/fara-comp-react/issues"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

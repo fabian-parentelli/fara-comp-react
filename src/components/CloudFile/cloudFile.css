@@ -1,18 +1,103 @@
 .cloudFile {
-    border: 1px solid rgb(202, 202, 202);
+    position: relative;
+    border: 2px dashed #c9ced2;
     border-radius: 18px;
     cursor: pointer;
-    background-color: gainsboro;
+    background-color: #f0f1f4;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cloudFile:hover {
+    border-color: #2990c8;
+    background-color: #e9eef3;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(41, 144, 200, 0.15);
 }
 
 .cloudUploadIcon {
     width: 70px;
     height: 70px;
     color: #2990c8;
+}
+
+.cfSingle {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.cloudFile:hover .cfSingle {
+    transform: scale(1.06);
+}
+
+.cfPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem;
+    text-align: center;
+    animation: cfPulse 2.4s ease-in-out infinite;
+}
+
+.cfText {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #5c6672;
+}
+
+.cfOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(15, 20, 25, 0.55);
+    backdrop-filter: blur(2px);
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cfOverlay svg {
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.cloudFile:hover .cfOverlay {
+    opacity: 1;
+}
+
+.cloudFile:hover .cfOverlay svg {
+    transform: scale(1.05);
+}
+
+.cfOverlayText {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+@keyframes cfPulse {
+    0%, 100% {
+        opacity: 0.85;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 .imgFile {

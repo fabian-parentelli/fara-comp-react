@@ -1,4 +1,4 @@
-declare module 'fara_comp_react' {
+declare module 'fara-comp-react' {
 
     // Propiedades para los Iconos
     export interface IconProps {
@@ -111,6 +111,13 @@ declare module 'fara_comp_react' {
         contClass?: string;
         id?: string;
         preImg?: string;
+        single?: boolean;
+        accept?: string;
+        iconType?: string;
+        iconSize?: string;
+        iconColor?: string;
+        placeholderText?: string;
+        overlayText?: string;
     }
 
     export const CloudFile: React.FC<CloudFileProps>;
@@ -174,7 +181,11 @@ declare module 'fara_comp_react' {
         };
         setQuery?: (item: any) => void;
         backgroundColor?: string;
-        top?: string;
+        top?: boolean;
+        size?: string;
+        compColor?: string;
+        compBackground?: string;
+        jump?: number;
     }
 
     export const Pager: React.FC<PagerProps>;

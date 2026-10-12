@@ -1,7 +1,17 @@
 import './cloudFile.css';
 import { useState, useRef } from 'react';
+import { Icons } from '../Icons/Icons';
 
-const CloudFile = ({ onChange, folderName, contClass, id, preImg }) => {
+const CloudFile = ({
+    onChange, folderName, contClass, id, preImg,
+    single = false,
+    accept = single ? 'image/*' : 'image/*,application/pdf',
+    iconType = 'cloudup',
+    iconSize = '28px',
+    iconColor = '#ffffff',
+    placeholderText = 'Subir imagen',
+    overlayText = 'Cambiar imagen'
+}) => {
 
     const fileInputRef = useRef(null);
     const [images, setImages] = useState([]);
@@ -9,8 +19,19 @@ const CloudFile = ({ onChange, folderName, contClass, id, preImg }) => {
 
     const handleImgChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
-        const newFiles = [...files, ...selectedFiles];
-        newFiles.sort((a, b) => a.name.localeCompare(b.name));
+        if (!selectedFiles.length) return;
+
+        let newFiles;
+        if (single) {
+            images.forEach(image => {
+                if (image.url) URL.revokeObjectURL(image.url);
+                if (image.fileUrl) URL.revokeObjectURL(image.fileUrl);
+            });
+            newFiles = selectedFiles;
+        } else {
+            newFiles = [...files, ...selectedFiles];
+            newFiles.sort((a, b) => a.name.localeCompare(b.name));
+        }
         setFiles(newFiles);
 
         const filePreviews = newFiles.map(file => {
@@ -33,33 +54,55 @@ const CloudFile = ({ onChange, folderName, contClass, id, preImg }) => {
 
     const handleClick = () => fileInputRef.current.click();
 
+    const overlay = (
+        <div className='cfOverlay'>
+            <Icons type={iconType} size={iconSize} color={iconColor} />
+            <span className='cfOverlayText'>{overlayText}</span>
+        </div>
+    );
+
     return (
         <div className={`cloudFile ${contClass}`} onClick={handleClick}>
             <input
                 type="file"
                 name='files'
-                accept="image/*,application/pdf"
+                accept={accept}
                 className='file-inside'
                 hidden
                 ref={fileInputRef}
-                multiple
+                multiple={!single}
                 onChange={handleImgChange}
             />
 
-            {images.length > 0 ? (
-                <div className='image-container'>
-                    {images.map((file, index) => (
-                        file.type === "image" ? (
-                            <img key={index} src={file.url} className={images.length === 1 ? "imgFile" : "thumbnail"} alt={`preview-${index}`} />
-                        ) : (
-                            <a key={index} href={file.fileUrl} target="_blank" rel="noopener noreferrer">
-                                <img src='/pdf.png' className="pdf-icon" alt="PDF preview" />
-                            </a>
-                        )
-                    ))}
-                </div>
+            {single && (images[0] || preImg) ? (
+                <>
+                    <img
+                        src={(images[0] && images[0].url) || preImg}
+                        className='cfSingle'
+                        alt='preview'
+                    />
+                    {overlay}
+                </>
+            ) : images.length > 0 ? (
+                <>
+                    <div className='image-container'>
+                        {images.map((file, index) => (
+                            file.type === "image" ? (
+                                <img key={index} src={file.url} className={images.length === 1 ? "imgFile" : "thumbnail"} alt={`preview-${index}`} />
+                            ) : (
+                                <a key={index} href={file.fileUrl} target="_blank" rel="noopener noreferrer">
+                                    <img src='/pdf.png' className="pdf-icon" alt="PDF preview" />
+                                </a>
+                            )
+                        ))}
+                    </div>
+                    {overlay}
+                </>
             ) : (
-                <img src={preImg || '/logo.png'} alt="img" className='cloudUploadIcon' />
+                <div className='cfPlaceholder'>
+                    <img src={preImg || '/logo.png'} alt='logo' className='cloudUploadIcon' />
+                    <span className='cfText'>{placeholderText}</span>
+                </div>
             )}
         </div>
     );
