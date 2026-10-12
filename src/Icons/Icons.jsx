@@ -164,7 +164,7 @@ const Icons = ({ color = '#2c3e50', size = '30px', onClick, backCol = 'none', bo
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             width={size} height={size}
-            style={{ fill: backCol }}
+            style={{ fill: backCol, color: color }}
             onClick={onClick}
             stroke={color}
             strokeWidth={bold}

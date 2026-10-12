@@ -1,6 +1,6 @@
 # Faradays Components
 
-**Version:** 0.0.18
+**Version:** 0.0.19
 
 - **GitHub:** [fabian-parentelli/fara-comp-react](https://github.com/fabian-parentelli/fara-comp-react)
 - **Issues:** [Report a bug or request a feature](https://github.com/fabian-parentelli/fara-comp-react/issues)
@@ -322,11 +322,11 @@ export default App;
 
 ## CloudFile
 
-**Version:** 0.0.2
+**Version:** 0.0.3
 
 The CloudFile component allows users to upload files interactively, displaying an immediate image preview and a representative icon for PDF files. It internally manages the state of the selected files and generates a FormData object containing the files and metadata such as the folder name or an optional identifier, sending it to the parent component via the onChange function. It also provides a clickable area that activates the file picker and visually organizes previews by number and file type.
 
-By default it accepts multiple images and PDFs. With `single={true}` it only allows uploading one image at a time; selecting a new image replaces the previous one. The component now includes a renewed interface: a dashed border that highlights on hover, a blur overlay with the text "Cambiar imagen" when a preview exists, and an animated placeholder with the text "Subir imagen" when it is empty.
+By default it accepts multiple images and PDFs. With `single={true}` it only allows uploading one image at a time; selecting a new image replaces the previous one. The component includes a renewed interface: a dashed border that highlights on hover, a blur overlay with the text "Cambiar imagen" when a preview exists, and an animated placeholder with the text "Subir imagen" when it is empty. PDF previews and the empty placeholder use the built-in Icons component, so no external image assets are required anymore.
 
 ```jsx
 import { useState } from 'react';
@@ -368,8 +368,6 @@ const App = () => {
 export default App;
 ```
 
-**Important:** It is important that each project includes the logo.png and pdf.png files in the public folder, as they are used as default icons for previewing file uploads.
-
 #### Props:
 
 - **`labels`** (function): It's a function that runs every time the user selects files. It receives as an argument a FormData object containing the selected files along with additional information such as the folder name and an optional identifier, allowing the parent component to process or submit this data.
@@ -392,7 +390,9 @@ export default App;
 
 - **`iconColor`** (string): Color of the overlay icon. Default: `'#ffffff'`.
 
-- **`placeholderText`** (string): Text displayed under the logo when no file has been selected. Default: `'Subir imagen'`.
+- **`placeholderText`** (string): Text displayed under the icon when no file has been selected. Default: `'Subir imagen'`.
+
+- **`placeholderIcon`** (string): Icon type (from the Icons component) displayed as the empty-state placeholder when no `preImg` is provided. Default: `'app'`.
 
 - **`overlayText`** (string): Text displayed in the hover overlay when a preview already exists. Default: `'Cambiar imagen'`.
 
@@ -681,9 +681,9 @@ export default App;
 
 ## Print
 
-**Version:** 0.0.1
+**Version:** 0.0.2
 
-The Print component is an interactive button that allows you to print only a specific section of the page, defined by a reference (ref) passed from the parent component.
+The Print component is an interactive button that allows you to print only a specific section of the page, defined by a reference (ref) passed from the parent component. When clicked, it opens a new window with the referenced content along with all the stylesheets of the current page, opens the browser's print dialog for that window, and closes it automatically once printing is done. The original page keeps its state untouched (no reloads). If no ref is provided (or the popup is blocked), it falls back to printing the whole page.
 
 ```jsx
 import { useRef } from 'react';
@@ -705,8 +705,9 @@ const App = () => {
                 color='gray'
                 size='30px'
                 position='top'
-                useRef={ref}
+                printRef={ref}
                 bodyClass='divPrint'
+                title='Mi ticket'
             />
 
         </div>
@@ -724,9 +725,11 @@ export default App;
 
 - **`position`** (string): Determines the position of the tooltip relative to the print icon, for example 'top', 'bottom', 'left' or 'right'.
 
-- **`useRef`** (ref object): Reference to a DOM element you want to print. The contents of useRef.current are what will be displayed in the printout, allowing only that specific section to be printed.
+- **`printRef`** (ref object): Reference to a DOM element you want to print. The contents of printRef.current are what will be rendered in the new window and sent to the printout, allowing only that specific section to be printed. The old `useRef` prop name is still accepted for backwards compatibility, but `printRef` is recommended.
 
 - **`bodyClass`** (string): Optional CSS class applied to the container of printed content, allowing specific styles to be added to the printed section without affecting the main page.
+
+- **`title`** (string): Title of the print window (browser tab title). Default: 'Imprimir'.
 
 <br><br>
 
@@ -955,7 +958,7 @@ export default App;
 
 - **`name`** (string): Name that identifies the property within values ​​that controls the state of the switch.
 
-- **`acvtiveColor`** (string): Color applied to the switch when activated, visually highlighting the selected option.
+- **`activeColor`** (string): Color applied to the switch when activated, visually highlighting the selected option. Default: `'#2C5469'`. (The `name` prop defaults to `'switch'`.)
 
 - **`setChange`** (function): Optional function that runs when the switch state changes, useful for handling side effects or marking forms as modified.
 
@@ -1033,7 +1036,7 @@ export default App;
 
 ## Popup
 
-**Version:** 0.0.1
+**Version:** 0.0.2
 
 A popup is a UI component that displays a small floating panel when the user clicks on a trigger element (text or icon). It is useful for showing additional information, actions, or interactive content without leaving the current view.
 
@@ -1070,6 +1073,8 @@ export default App;
 * **`text`** (string, optional): Text that acts as the popup trigger. If omitted, an icon will be used instead.
 
 * **`icon`** (string, optional): Icon type used as the trigger when no text is provided. Default: `'app'`.
+
+* **`closeOnClickContent`** (boolean, optional): If true (default), clicking anywhere inside the popup content closes it. If false, the content stays open when clicked inside and only closes when clicking outside (or on the trigger).
 
 * **`children`** (ReactNode): The content displayed inside the popup. **Required.**
 

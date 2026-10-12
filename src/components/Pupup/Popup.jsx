@@ -2,7 +2,7 @@ import './popup.css';
 import { Icons } from '../../Icons/Icons';
 import { useState, useRef, useEffect } from 'react';
 
-const Popup = ({ text, icon, styles, children }) => {
+const Popup = ({ text, icon, styles, children, closeOnClickContent = true }) => {
 
     const mergedStyles = { ...defaultStyles, ...styles };
     const { color, size, position, width } = mergedStyles;
@@ -39,7 +39,7 @@ const Popup = ({ text, icon, styles, children }) => {
             {isOpen && (
                 <div
                     className={`popup-content popUp-${position}`} ref={contRef}
-                    onClick={togglePopup}
+                    onClick={closeOnClickContent ? togglePopup : undefined}
                     style={{ width }}
                 >
                     {children}

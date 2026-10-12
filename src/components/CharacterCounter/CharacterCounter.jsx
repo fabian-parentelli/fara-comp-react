@@ -4,11 +4,11 @@ const CharacterCounter = ({ min, max, text = '' }) => {
         <div>
             <p
                 style={{ color: 'gray', fontSize: '10px' }}
-            >Carcatres minimos: {min} - Carcatres Máximos: {max}</p>
+                >Caracteres mínimos: {min} - Caracteres máximos: {max}</p>
             <p
                 style={{ fontSize: '12px', color: (text?.length < min || text?.length > max) ? 'red' : 'green' }}
             >
-                {text?.length} caractreres
+                {text?.length} caracteres
             </p>
         </div>
     );

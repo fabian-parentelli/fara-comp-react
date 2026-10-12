@@ -1,6 +1,6 @@
 import './cloudFile.css';
 import { useState, useRef } from 'react';
-import { Icons } from '../Icons/Icons';
+import { Icons } from '../../Icons/Icons';
 
 const CloudFile = ({
     onChange, folderName, contClass, id, preImg,
@@ -10,6 +10,7 @@ const CloudFile = ({
     iconSize = '28px',
     iconColor = '#ffffff',
     placeholderText = 'Subir imagen',
+    placeholderIcon = 'app',
     overlayText = 'Cambiar imagen'
 }) => {
 
@@ -38,7 +39,7 @@ const CloudFile = ({
             if (file.type.startsWith("image/")) {
                 return { url: URL.createObjectURL(file), type: "image" };
             } else if (file.type === "application/pdf") {
-                return { url: "/pdf-icon.png", type: "pdf", fileUrl: URL.createObjectURL(file) };
+                return { url: null, type: "pdf", fileUrl: URL.createObjectURL(file) };
             };
             return null;
         }).filter(Boolean);
@@ -90,8 +91,8 @@ const CloudFile = ({
                             file.type === "image" ? (
                                 <img key={index} src={file.url} className={images.length === 1 ? "imgFile" : "thumbnail"} alt={`preview-${index}`} />
                             ) : (
-                                <a key={index} href={file.fileUrl} target="_blank" rel="noopener noreferrer">
-                                    <img src='/pdf.png' className="pdf-icon" alt="PDF preview" />
+                                <a key={index} href={file.fileUrl} target="_blank" rel="noopener noreferrer" className="pdf-icon">
+                                    <Icons type='pdf' color='#b71c1c' size='50px' />
                                 </a>
                             )
                         ))}
@@ -100,7 +101,9 @@ const CloudFile = ({
                 </>
             ) : (
                 <div className='cfPlaceholder'>
-                    <img src={preImg || '/logo.png'} alt='logo' className='cloudUploadIcon' />
+                    {preImg
+                        ? <img src={preImg} alt='logo' className='cloudUploadIcon' />
+                        : <Icons type={placeholderIcon} color='#2990c8' size='70px' />}
                     <span className='cfText'>{placeholderText}</span>
                 </div>
             )}
